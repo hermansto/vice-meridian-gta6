@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Meridian — open-world crime</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="screen" width="1280" height="720"></canvas>
+
+  <div id="hud" hidden>
+    <div id="hud-left">
+      <div id="stars" aria-label="wanted level"></div>
+      <div id="objective"><span id="objective-label">MISSION</span><span id="objective-text"></span></div>
+    </div>
+    <div id="hud-right">
+      <div id="cash">$0</div>
+      <div id="clock">06:00</div>
+    </div>
+    <div id="minimap-wrap">
+      <canvas id="minimap" width="180" height="180"></canvas>
+      <div id="district">MERIDIAN STRIP</div>
+    </div>
+    <div id="speedo" hidden><span id="speed-value">0</span><span class="unit">km/h</span></div>
+    <div id="prompt" hidden></div>
+    <div id="toast" hidden></div>
+  </div>
+
+  <div id="title" class="overlay">
+    <div class="panel">
+      <p class="kicker">a city with a debt problem</p>
+      <h1>Vice <em>Meridian</em></h1>
+      <p class="blurb">Steal cars, move product, outrun the stripes. The strip pays, the police remember.</p>
+      <div class="menu">
+        <button id="btn-new" class="primary">New game</button>
+        <button id="btn-continue" hidden>Continue</button>
+        <button id="btn-help">Controls</button>
+      </div>
+      <p class="foot">WASD to move · E to enter or exit a car · mouse to aim · click to fire · Shift to sprint · F to start a mission · Esc to pause</p>
+    </div>
+  </div>
+
+  <div id="pause" class="overlay" hidden>
+    <div class="panel small">
+      <h2>Paused</h2>
+      <div class="menu">
+        <button id="btn-resume" class="primary">Resume</button>
+        <button id="btn-save">Save game</button>
+        <button id="btn-quit">Quit to title</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="help" class="overlay" hidden>
+    <div class="panel small">
+      <h2>Controls</h2>
+      <ul class="keys">
+        <li><b>W A S D</b> — walk, drive, steer</li>
+        <li><b>Shift</b> — sprint on foot, handbrake in a car</li>
+        <li><b>E</b> — enter or leave the nearest car</li>
+        <li><b>Mouse</b> — aim · <b>Click</b> — fire</li>
+        <li><b>F</b> — start a mission at its marker</li>
+        <li><b>M</b> — toggle the big map · <b>Esc</b> — pause</li>
+      </ul>
+      <button id="btn-help-close" class="primary">Got it</button>
+    </div>
+  </div>
+
+  <div id="gameover" class="overlay" hidden>
+    <div class="panel small">
+      <h2 id="go-title">Busted</h2>
+      <p id="go-text"></p>
+      <div class="menu">
+        <button id="btn-respawn" class="primary">Back on the street</button>
+        <button id="btn-go-title">Title screen</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
